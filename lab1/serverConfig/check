@@ -1,0 +1,4 @@
+#!/bin/sh
+unset _JAVA_OPTIONS
+export FCGI_PORT=13238
+exec /usr/local/bin/java -Xmx128m -jar /home/studs/s465544/web1/server.jar
