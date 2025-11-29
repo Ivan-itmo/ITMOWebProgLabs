@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проверка попадания точки</title>
+    <link rel="stylesheet" href="../css/main-style.css">
+    <script src="../js/lib/vue.global.js"></script>
+</head>
+<body>
+<div class="container">
+<div id="app">
+    <div class="header">
+        <h1>Гладышев Иван Станиславович, P3213, 1737</h1>
+        <button class="logout-btn" @click="logout">Выйти</button>
+    </div>
+    <div class="layout-container">
+        <div class="form-container-wrapper">
+            <div class="form-container">
+                <h2>Форма отправки</h2>
+                <form @submit.prevent="submitForm">
+                    <div class="form-group">
+                        <label>Координата X:</label>
+                        <div class="radio-group">
+                            <label v-for="xVal in xOptions" :key="xVal">
+                                <input type="radio" v-model="formData.x" :value="xVal" name="x">
+                                {{ xVal }}
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="y">Координата Y:</label>
+                        <input id="y" v-model="formData.y" type="text" placeholder="от -3 до 3" maxlength="7">
+                        <div class="hint">Число от -3 до 3</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Радиус R:</label>
+                        <div class="radio-group">
+                            <label v-for="rVal in rOptions" :key="rVal">
+                                <input type="radio" v-model="formData.r" :value="rVal" name="r">
+                                {{ rVal }}
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit">Проверить</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="graph-container-wrapper">
+            <div class="graph-container">
+                <h2>Область попадания</h2>
+                <div class="graph">
+                    <canvas ref="areaGraph" width="450" height="450" @click="handleCanvasClick"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div v-if="errorMessage" class="error">{{ errorMessage }}</div>
+    <div class="results-section">
+        <h2>Результаты</h2>
+        <table id="resultsTable">
+            <thead>
+            <tr>
+                <th>X</th>
+                <th>Y</th>
+                <th>R</th>
+                <th>Результат</th>
+                <th>Время запроса</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="(result, index) in results" :key="index">
+                <td>{{ result.x }}</td>
+                <td>{{ result.y }}</td>
+                <td>{{ result.r }}</td>
+                <td :class="{ 'hit': result.hit, 'miss': !result.hit }">
+                    {{ result.hit ? 'Попадание' : 'Промах' }}
+                </td>
+                <td>{{ result.timestamp }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+<script src="../js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+    <link rel="stylesheet" href="../css/auth-style.css">
+    <script src="../js/lib/vue.global.js"></script>
+</head>
+<body>
+<div id="app" class="container">
+    <div style="text-align: center;">
+    <h2>Вход в систему</h2>
+        <form @submit.prevent="login">
+            <div class="form-group">
+                <label for="login">Логин:</label>
+                <input v-model="form.login" type="text" id="login" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль:</label>
+                <input v-model="form.password" type="password" id="password" required>
+            </div>
+            <button type="submit" class="auth-button">Войти</button>
+        </form>
+
+        <div v-if="message" :class="`message ${message.type}`">
+            {{ message.text }}
+        </div>
+
+        <a href="register.html" class="toggle-link">Нет аккаунта? Зарегистрироваться</a>
+    </div>
+</div>
+
+<script src="../js/login.js"></script>
+</body>
+</html>

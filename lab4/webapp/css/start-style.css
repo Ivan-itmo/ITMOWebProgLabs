@@ -1,0 +1,150 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 95%;
+    max-width: 1200px;
+    background: white;
+    padding: 50px 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    text-align: center;
+}
+
+h2 {
+    color: #003366;
+    font-size: 2.2em;
+    margin-bottom: 25px;
+    border-bottom: 3px solid #007bff;
+    padding-bottom: 20px;
+}
+
+p {
+    color: #666;
+    font-size: 1.3em;
+    margin-bottom: 50px;
+    line-height: 1.6;
+}
+
+.button-group {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.button {
+    display: inline-block;
+    padding: 20px 60px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    min-width: 200px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.login-btn {
+    background: #007bff;
+}
+
+.login-btn:hover {
+    background: #0056b3;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+}
+
+.register-btn {
+    background: #28a745;
+}
+
+.register-btn:hover {
+    background: #1e7e34;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(40, 167, 69, 0.4);
+}
+
+@media (min-width: 708px) and (max-width: 1176px) {
+    .container {
+        width: 92%;
+        padding: 40px 30px;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    p {
+        font-size: 1.2em;
+        margin-bottom: 45px;
+    }
+
+    .button-group {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .button {
+        width: 100%;
+        max-width: 300px;
+        padding: 18px 30px;
+        font-size: 18px;
+        min-width: auto;
+    }
+}
+
+@media (max-width: 707px) {
+    body {
+        padding: 15px;
+    }
+
+    .container {
+        width: 100%;
+        padding: 30px 20px;
+    }
+
+    h2 {
+        font-size: 1.7em;
+    }
+
+    p {
+        font-size: 1.1em;
+        margin-bottom: 40px;
+    }
+
+    .button-group {
+        margin-top: 40px;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .button {
+        width: 100%;
+        padding: 16px 25px;
+        font-size: 17px;
+        min-width: auto;
+        max-width: none;
+    }
+
+    .login-btn:hover,
+    .register-btn:hover {
+        transform: none;
+        box-shadow: none;
+    }
+}
